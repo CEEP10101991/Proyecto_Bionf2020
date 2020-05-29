@@ -6,7 +6,7 @@ This repository and their contains form part of an exercises from the intensive 
 ### Bin
 Contains: 
 * Three bash scripts numerated acording to thier excecution order 
-** An .rmd file that generates a graphic report XXXXXXXXXXXXXXXXXx, for the comodity of the readers, the report its also saved as a pdf file in this folder.
+* An .rmd file that generates a graphic report XXXXXXXXXXXXXXXXXx, for the comodity of the readers, the report its also saved as a pdf file in this folder.
 
 ### Data
 Data is subdivided into two folders, structured to contain the necessary informatiosn to perform this exercise:
