@@ -7,7 +7,7 @@ This repository and their contains form part of an exercises from the intensive 
 ### [Bin](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Bin)
 Contains: 
 * Three bash scripts numerated acording to thier excecution order 
-* An .rmd file that generates a graphic report from the Stacks output obtaindes form this excersise, for the comodity of the readers, the report its also saved also as a .pdf file in this folder.
+* An .rmd file that generates a graphic report from the Stacks output obtained form this excersise and the .html output report(for the comodity of the readers, the report its also saved as a .pdf file in this folder).
 
 ### Data
 Data is subdivided into two folders, structured to contain the necessary informatiosn to perform this exercise:
