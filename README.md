@@ -11,7 +11,7 @@ Contains:
 
 ### Data
 Data is subdivided into two folders, structured to contain the necessary informatiosn to perform this exercise:
-#### [raw](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/raw)
+#### [raw](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Raw)
 That should contains the raw .fq.gz files, (in orther to save space the inclussión of this files was omited at this repository, but inside this folder you may find a [description of the files](http://catchenlab.life.illinois.edu/stacks/manual/) used ) 
 #### [info](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/info)
 Fulfills the functions of a Meta folder,contains the barcodes and population maps, of the previously selected samples.
