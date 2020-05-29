@@ -7,4 +7,7 @@ The exercise conducted in this repository it's a good introduction / example for
 
 As the conclusion for this particular exercise the n = 3 gives the greatest number of variant sites, keeping the greatest number of loci, however generate more test applying different values at the variables would generate better output values.
 
+The ability to perform a varour number of combinations in a reduced amount of time (due to the testing on small data),makes this kind of protocols powerful tools to the de novo assembly Stacks users.
+
+
 
