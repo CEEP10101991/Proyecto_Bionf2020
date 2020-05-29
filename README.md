@@ -6,11 +6,12 @@ This repository and their contains form part of an exercises from the intensive 
 
 ### Data
 Data is subdivided into two folders, structured to contain all the information necessary to perform this exercise:
-#### [Raw](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Raw)
+#### [raw](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Raw)
 That should contains the raw .fq.gz files, (in orther to save space the inclussión of this files was omited at this repository, but inside this folder you may find a [description of the files](http://catchenlab.life.illinois.edu/stacks/manual/) used ) 
-#### [Meta](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Meta)
-That contins the barcodes and population maps, of three sampples previously selected 
+#### [info](https://github.com/CEEP10101991/Proyecto_Bionf2020/tree/master/Meta)
+Fulfills the functions of a Meta folder,contins the barcodes and population maps, of the previously selected samples.
 
+### OUTPUT 
 
 cleaned: aquí van tus secuencias después de hacer un análisis de calidad, limpiarlas y demultiplexearlas. (pasos 1 y 2).
 Alternativamente puedes tener un directorio cleaned y otro samples para las lecturas limpias y demultiplexeadas, respectivamente, si haces estos pasos por separado.
