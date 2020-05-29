@@ -13,7 +13,7 @@ done
  ## variables for the loop
  
  n_values="1 2 3"#to set the n values
- popmap=../info/popmap_TAREA.tsv #to set the population map necessary to perform the wrapper 
+ popmap=../info/popmap.tsv #to set the population map necessary to perform the wrapper 
  
  for n in $n_values ;do
  M=2
