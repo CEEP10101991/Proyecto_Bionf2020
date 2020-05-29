@@ -9,7 +9,7 @@ n_values="1 2 3 "
 for n in $n_values ;do
 	mkdir -p ../tests.denovo/stacks.n$n
 done
-### To run the wrapper to generate the denovo_map
+### To run the wrapper to generate the denovo_map (excecuted in a loop for each n vlaue)
  ## variables for the loop
  
  n_values="1 2 3"#to set the n values
