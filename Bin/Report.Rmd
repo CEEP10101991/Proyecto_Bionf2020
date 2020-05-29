@@ -1,0 +1,117 @@
+---
+title: "Report"
+author: "César Emiliano Escalona Prado"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(knitr)
+```
+
+
+This exercise tested the effect of different values in the distance between catalog loci (n). The test was performed using values 1, 2 and 3.
+The variable n acts in the cstacks program, it uses the locis generated from the ustacks, which it merges into a catalog that must contain all the loci and alleles of the population. In the case that this parameter is set too low, there will be loci between the individuals that are independently represented in the catalog that are actually the same locus. Setting this parameter too high will allow loci to join together in the sequence space to chain together and create large and wrong loci in the catalog.
+
+
+
+
+```{r snps_per_loc, echo=FALSE}
+snps_per_loc <- read.csv('./n_snps_per_locus.tsv',header = TRUE) # call a variable with the Data
+
+kable(snps_per_loc)
+```
+
+
+
+```{r p, echo=FALSE}
+p <- ggplot(data=snps_per_loc, aes(x=n, y=n_loci))+geom_bar(aes(fill=n),stat="identity")#to generate a plot file, the X axis represetn the n values and the Y axis represente the number of loci 
+p#to print the plot
+```
+
+
+```{r q, echo=FALSE}
+q <- ggplot(data=snps_per_loc, aes(x=n, y=n_snps)) + geom_bar(aes(fill=n),stat="identity")#to generate a plot file, the X axis represent the n values and the Y axis represente the number of snps 
+q#to print the plot
+```
+
+```{r}
+d= read.csv('./n_snps_per_locus.tsv') # call a variable with the data
+#generate a ggplot object to show the number of loci related to n values (the plot differentiates between all the loci and the polymorphic ones)
+plot(NULL,
+	xlim=range(d$n),
+	ylim=range(c(0, d$n_loci)),
+	xlab='n',
+	ylab='Número de locis',
+	main='Número de locis muestreados (80%) conforme n aumenta',
+	xaxt='n',
+	las=2
+	)
+abline(h=0:20*5000, lty='dotted', col='grey50')
+axis(1, at=c(1,3,5,7,9))
+legend('right', c('All loci', 'Polymorphic loci'), lty=c('solid', 'dashed'))
+
+# Total number of loci.
+lines(d$n, d$n_loci)
+points(d$n, d$n_loci, cex=0.5)
+
+# Number of polymorphic loci.
+lines(d$n, d$n_loci_poly, lty='dashed')
+points(d$n, d$n_loci_poly, cex=0.5)
+
+```
+
+
+
+```{r, echo=FALSE}
+d = read.csv('./n_snps_per_locus.tsv')
+# Keep only M=2, m=3.
+
+
+n_values = sort(unique(d$n))
+
+# Write the counts in a matrix.
+m = matrix(NA, nrow=length(n_values), ncol=max(d$n_snps)+1)
+for(i in 1:nrow(d)) {
+  m[d$n[i],d$n_snps[i]+1] = d$n_loci[i] # [n_snps+1] as column 1 is for loci with 0 SNPs
+}
+
+# Truncate the distributions. 
+max_n_snps = 25 #( to distinguish between the n values that have more than 25 snps)
+m[,max_n_snps+2] = rowSums(m[,(max_n_snps+2):ncol(m)], na.rm=T)
+m = m[,1:(max_n_snps+2)]
+m = m / rowSums(m, na.rm=T)
+
+# Draw the barplot. (draw the number of snps obtained for each n value)
+
+col = rev(heat.colors(length(n_values)))
+
+barplot(m,
+        beside=T, col=col, las=1,
+        names.arg=c(0:max_n_snps, paste('>', max_n_snps, sep='')),
+        xlab='Número de SNPs',
+        ylab='Porcentaje de loci',
+        main='Distribución del número de SNPs por locus\n para un rango de valores de n'
+)
+legend('topleft', legend=c('n', n_values), fill=c(NA, col))
+```
+
+
+#### Results
+
+n1) Removed 50508 loci that did not pass sample/population constraints from 50538 loci.
+Kept 30 loci, composed of 2852 sites; 2 of those sites were filtered, 20 variant sites remained.
+Mean genotyped sites per locus: 95.07bp 
+
+n2) Removed 49225 loci that did not pass sample/population constraints from 49258 loci.
+Kept 33 loci, composed of 3146 sites; 2 of those sites were filtered, 24 variant sites remained.
+Mean genotyped sites per locus: 95.33bp 
+
+n3) Removed 48511 loci that did not pass sample/population constraints from 48544 loci.
+Kept 33 loci, composed of 3146 sites; 2 of those sites were filtered, 27 variant sites remained.
+Mean genotyped sites per locus: 95.33bp
+
+Using n = 3 gives the greatest number of variant sites, keeping the greatest number of loci
